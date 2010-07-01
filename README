@@ -43,11 +43,11 @@ include GeoRuby::SimpleFeatures
 
 == INSTALLATION
 
-1) Enable gems from github, if you haven't already done so (rubygems >= 1.2):
-    > sudo gem sources -a http://gems.github.com
+1) Update to the latest RubyGems version
+    > gem update --system
 
 2) Install gem
-    > sudo gem install griffordson-georuby-extras
+    > gem install griffordson-georuby-extras
 
 3) Profit!
 
