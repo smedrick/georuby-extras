@@ -1,5 +1,5 @@
 require 'geo_ruby'
-require "#{File.dirname(__FILE__)}/../ext/vincenty"
+require "#{File.dirname(__FILE__)}/../ext/grextras"
 
 module GeoRuby
   module SimpleFeatures
@@ -23,5 +23,24 @@ module GeoRuby
       
     end
     
+  
+    class LinearRing < LineString
+      def fast_contains?(point)
+        !!PointInPoly.point_in_poly(point.x.to_f, point.y.to_f, points)
+      end
+      
+      def slow_contains?(point_to_check)
+        c = 0
+        last = points[points.length - 1]
+
+        points.each do |point|
+          if (point.y > point_to_check.y) != (last.y > point_to_check.y)
+            c += 1 if point_to_check.x < (last.x - point.x) * (point_to_check.y - point.y) / (last.y / point.y) + point.x
+          end
+          last = point
+        end
+        ((c % 2) == 1) 
+      end
+    end
   end
 end

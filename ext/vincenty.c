@@ -34,11 +34,13 @@
 #include "ruby.h"
 #include <math.h>
 #include <ctype.h>
+#include "pnpoly.h"
 
 #define DEG_TO_RAD	0.0174532925199433
 #define PI					3.14159265358979
 
 static VALUE rb_mVincenty;
+static VALUE rb_mPointInPoly;
 
 static VALUE distance(VALUE self, VALUE rb_lon1, VALUE rb_lat1, VALUE rb_lon2, VALUE rb_lat2, VALUE rb_a, VALUE rb_b) {
 
@@ -151,11 +153,14 @@ static VALUE point_from_lon_lat(VALUE self, VALUE rb_lon1, VALUE rb_lat1, VALUE 
 	return ret;
 }
 
-void Init_vincenty()
+void Init_grextras()
 {
 	rb_mVincenty = rb_define_module("Vincenty");
 	rb_define_module_function(rb_mVincenty, "distance", distance, 6);
 	rb_define_module_function(rb_mVincenty, "point_from_lon_lat", point_from_lon_lat, 6);
+	
+	rb_mPointInPoly = rb_define_module("PointInPoly");
+	rb_define_module_function(rb_mPointInPoly, "point_in_poly", point_in_poly, 3);
 }
 
 // end

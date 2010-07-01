@@ -18,6 +18,7 @@ with GIS extensions for popular databases including Postgres and MySQL.
 * Provides native C implementation of Vincenty distance and direct algorithms.
 * 25 times faster than GeoRuby 'ellipsoidal_distance' function.
 * Adds the Vincenty 'direct' algorithm (point_at_bearing_and_distance).
+* Provides native C implementation of a ray casting algorithm to detect if a point is contained in a polygon.
 * No known problems; won't work with JRuby or non-MRI Ruby implementations.
 
 == SYNOPSIS:
@@ -46,7 +47,7 @@ include GeoRuby::SimpleFeatures
     > sudo gem sources -a http://gems.github.com
 
 2) Install gem
-    > sudo gem install davetroy-georuby-extras
+    > sudo gem install griffordson-georuby-extras
 
 3) Profit!
 

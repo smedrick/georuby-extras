@@ -1,3 +1,7 @@
-=== 0.5.0 / 2008-12-3
+=== 0.6.0 / 2010-06-30
+
+  * Added LinearRing#fast_contains?
+  
+=== 0.5.0 / 2008-12-03
 
   * Released by David Troy (C) Under the MIT License

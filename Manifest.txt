@@ -2,7 +2,10 @@ History.txt
 README
 ext/extconf.rb
 ext/vincenty.c
+ext/pnpoly.c
+ext/pnpoly.h
 lib/georuby-extras.rb
 test/test_vincenty.rb
+test/test_pnpoly.rb
 test/extras-benchmark.rb
 
