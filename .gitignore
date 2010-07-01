@@ -2,3 +2,4 @@ ext/Makefile
 ext/grextras.bundle
 ext/vincenty.o
 ext/pnpoly.o
+*.gem
