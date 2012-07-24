@@ -59,7 +59,7 @@
 #include "ruby.h"
 #include "pnpoly.h"
 
-static int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy)
+static int pnpoly(int nvert, double *vertx, double *verty, double testx, double testy)
 {
   int i, j, c = 0;
   for (i = 0, j = nvert-1; i < nvert; j = i++) {
@@ -74,17 +74,17 @@ VALUE point_in_poly(VALUE self, VALUE rb_x, VALUE rb_y, VALUE rb_points) {
   Check_Type(rb_x, T_FLOAT);
   Check_Type(rb_y, T_FLOAT);
   Check_Type(rb_points, T_ARRAY);
-  
+
   int i = 0;
-  int s = RARRAY(rb_points)->len;
-  float *vertx;
-  float *verty;
+  int s = (int)RARRAY_LEN(rb_points);
+  double *vertx;
+  double *verty;
   
-  vertx = calloc(s, sizeof(float));
-  verty = calloc(s, sizeof(float));
+  vertx = calloc(s, sizeof(double));
+  verty = calloc(s, sizeof(double));
   
-  float test_x = RFLOAT(rb_x)->value;
-  float test_y = RFLOAT(rb_y)->value;
+  double test_x = RFLOAT_VALUE(rb_x);
+  double test_y = RFLOAT_VALUE(rb_y);
   
   ID i_x = rb_intern("x");
   ID i_y = rb_intern("y");
@@ -95,8 +95,8 @@ VALUE point_in_poly(VALUE self, VALUE rb_x, VALUE rb_y, VALUE rb_points) {
     VALUE y = rb_funcall(point, i_y, 0);
     Check_Type(x, T_FLOAT);
     Check_Type(y, T_FLOAT);
-    vertx[i] = RFLOAT(x)->value;
-    verty[i] = RFLOAT(y)->value;
+    vertx[i] = RFLOAT_VALUE(x);
+    verty[i] = RFLOAT_VALUE(y);
   }
   
   return pnpoly(s, vertx, verty, test_x, test_y);

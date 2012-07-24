@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name     = "griffordson-georuby-extras"
-  s.version  = '0.6.0'
-  s.date     = "2010-06-30"
+  s.version  = '0.7.0'
+  s.date     = "2012-07-24"
   s.summary  = "Native extensions and extra functions for the GeoRuby library."
   s.email    = "matt@griffith.com"
   s.homepage = "http://github.com/griffordson/georuby-extras"

@@ -51,12 +51,12 @@ static VALUE distance(VALUE self, VALUE rb_lon1, VALUE rb_lat1, VALUE rb_lon2, V
 	Check_Type(rb_a, T_FLOAT);
 	Check_Type(rb_b, T_FLOAT);
 
-	double lon1 = RFLOAT(rb_lon1)->value;
-	double lat1 = RFLOAT(rb_lat1)->value;
-	double lon2 = RFLOAT(rb_lon2)->value;
-	double lat2 = RFLOAT(rb_lat2)->value;
-	double a = RFLOAT(rb_a)->value;
-	double b = RFLOAT(rb_b)->value;
+	double lon1 = RFLOAT_VALUE(rb_lon1);
+	double lat1 = RFLOAT_VALUE(rb_lat1);
+	double lon2 = RFLOAT_VALUE(rb_lon2);
+	double lat2 = RFLOAT_VALUE(rb_lat2);
+	double a = RFLOAT_VALUE(rb_a);
+	double b = RFLOAT_VALUE(rb_b);
 
 	double sinLambda, cosLambda, sinSigma, cosSigma, sigma, sinAlpha, cosSqAlpha, cos2SigmaM, C;
 	
@@ -107,12 +107,12 @@ static VALUE point_from_lon_lat(VALUE self, VALUE rb_lon1, VALUE rb_lat1, VALUE 
 	
 	VALUE ret;
 
-	double lon1 = RFLOAT(rb_lon1)->value;
-	double lat1 = RFLOAT(rb_lat1)->value;
-	double brng = RFLOAT(rb_bearing)->value;
-	double s = RFLOAT(rb_distance)->value;
-	double a = RFLOAT(rb_a)->value;
-	double b = RFLOAT(rb_b)->value;
+	double lon1 = RFLOAT_VALUE(rb_lon1);
+	double lat1 = RFLOAT_VALUE(rb_lat1);
+	double brng = RFLOAT_VALUE(rb_bearing);
+	double s = RFLOAT_VALUE(rb_distance);
+	double a = RFLOAT_VALUE(rb_a);
+	double b = RFLOAT_VALUE(rb_b);
 	
 	double f = (a-b) / a;
   double alpha1 = brng * DEG_TO_RAD;

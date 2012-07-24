@@ -20,6 +20,7 @@ with GIS extensions for popular databases including Postgres and MySQL.
 * Adds the Vincenty 'direct' algorithm (point_at_bearing_and_distance).
 * Provides native C implementation of a ray casting algorithm to detect if a point is contained in a polygon.
 * No known problems; won't work with JRuby or non-MRI Ruby implementations.
+* Compatible with Ruby 1.8.7 and 1.9.x
 
 == SYNOPSIS:
 
