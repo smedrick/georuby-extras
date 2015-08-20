@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "griffordson-georuby-extras"
-  s.version  = '0.7.0'
+  s.version  = '0.7.1'
   s.date     = "2012-07-24"
   s.summary  = "Native extensions and extra functions for the GeoRuby library."
   s.email    = "matt@griffith.com"
@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README"]
   s.extensions << 'ext/extconf.rb'
   s.extra_rdoc_files = ["Manifest.txt", "README", "History.txt"]
-  s.add_dependency("GeoRuby", [">= 1.2.0"])
+  s.add_dependency("georuby", [">= 2.0"])
 end
